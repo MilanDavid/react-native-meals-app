@@ -1,20 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { SafeAreaView, StyleSheet, View } from "react-native";
+import CategoriesScreen from "./screens/CategoriesScreen";
 
-export default function App() {
+const App: React.FC = (): React.ReactElement => {
   return (
-    <View style={styles.container}>
-      <Text>Hello World!!!!</Text>
+    <View>
       <StatusBar style="auto" />
+      <SafeAreaView>
+        <CategoriesScreen />
+      </SafeAreaView>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  container: {},
 });
+
+export default App;
