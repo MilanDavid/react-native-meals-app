@@ -2,11 +2,23 @@ import { FlatList } from "react-native";
 import CategoryGridTime from "../components/CategoryGridTile";
 import { CATEGORIES } from "../data/dummyData";
 
-const rederCategoryItem: React.FC = (itemData: any): React.ReactElement => (
-  <CategoryGridTime title={itemData.item.title} color={itemData.item.color} />
-);
+const CategoriesScreen: React.FC<{ navigation: any }> = ({
+  navigation,
+}): React.ReactElement => {
+  const rederCategoryItem = (itemData: any) => {
+    const pressHandler = () => {
+      navigation.navigate("MealsOverview");
+    };
 
-const CategoriesScreen: React.FC = (): React.ReactElement => {
+    return (
+      <CategoryGridTime
+        title={itemData.item.title}
+        color={itemData.item.color}
+        onPress={pressHandler}
+      />
+    );
+  };
+
   return (
     <FlatList
       data={CATEGORIES}

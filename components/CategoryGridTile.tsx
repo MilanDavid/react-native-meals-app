@@ -1,10 +1,21 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Pressable, Text, View, StyleSheet, Platform } from "react-native";
+import {
+  Pressable,
+  Text,
+  View,
+  StyleSheet,
+  Platform,
+  GestureResponderEvent,
+  NativeTouchEvent,
+  NativeSyntheticEvent,
+} from "react-native";
 
-const CategoryGridTime: React.FC<{ title: string; color?: string }> = ({
-  title,
-  color,
-}): React.ReactElement => {
+const CategoryGridTime: React.FC<{
+  title: string;
+  color?: string;
+  onPress: React.EventHandler<GestureResponderEvent>;
+}> = ({ title, color, onPress }): React.ReactElement => {
   return (
     <View style={styles.gridItem}>
       <Pressable
@@ -13,6 +24,7 @@ const CategoryGridTime: React.FC<{ title: string; color?: string }> = ({
           pressed ? styles.buttonPressed : null,
         ]}
         android_ripple={{ color: "lightgreen" }}
+        onPress={onPress}
       >
         <View style={[styles.innerContainer, { backgroundColor: color }]}>
           <Text style={styles.title}>{title}</Text>
