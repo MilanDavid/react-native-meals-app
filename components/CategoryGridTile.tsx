@@ -1,4 +1,3 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
   Pressable,
@@ -7,8 +6,6 @@ import {
   StyleSheet,
   Platform,
   GestureResponderEvent,
-  NativeTouchEvent,
-  NativeSyntheticEvent,
 } from "react-native";
 
 const CategoryGridTime: React.FC<{

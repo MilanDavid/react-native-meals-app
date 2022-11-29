@@ -2,12 +2,14 @@ import { FlatList } from "react-native";
 import CategoryGridTime from "../components/CategoryGridTile";
 import { CATEGORIES } from "../data/dummyData";
 
-const CategoriesScreen: React.FC<{ navigation: any }> = ({
+const CategoriesScreen: React.FC = ({
   navigation,
-}): React.ReactElement => {
+}: any): React.ReactElement => {
   const rederCategoryItem = (itemData: any) => {
     const pressHandler = () => {
-      navigation.navigate("MealsOverview");
+      navigation.navigate("MealsOverview", {
+        categoryId: itemData.item.id,
+      });
     };
 
     return (

@@ -5,20 +5,26 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import CategoriesScreen from "./screens/CategoriesScreen";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
+import { Provider as PaperProvider } from "react-native-paper";
 
 const Stack = createNativeStackNavigator();
 
 const App: React.FC = (): React.ReactElement => {
   return (
-    <View style={styles.container}>
-      <StatusBar style="dark" />
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="MealsCategories" component={CategoriesScreen} />
-          <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </View>
+    <PaperProvider>
+      <View style={styles.container}>
+        <StatusBar style="dark" />
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="MealsCategories">
+            <Stack.Screen name="MealsCategories" component={CategoriesScreen} />
+            <Stack.Screen
+              name="MealsOverview"
+              component={MealsOverviewScreen}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </View>
+    </PaperProvider>
   );
 };
 
