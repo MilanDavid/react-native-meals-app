@@ -47,19 +47,17 @@ const MealsDetailsScreen: React.FC<{
           </Paragraph>
           <Paragraph style={styles.titles}>Ingedients:</Paragraph>
           <View style={styles.container}>
-            <FlatList
-              data={mealItem?.ingredients}
-              renderItem={renderIngred}
-              scrollEnabled={false}
-            />
+            {mealItem?.ingredients.map((ingred, key) => (
+              <Paragraph key={key}>- {ingred}</Paragraph>
+            ))}
           </View>
           <Paragraph style={styles.titles}>Steps:</Paragraph>
           <View style={styles.container}>
-            <FlatList
-              data={mealItem?.steps}
-              renderItem={renderSteps}
-              scrollEnabled={false}
-            />
+            {mealItem?.steps.map((step, index) => (
+              <Paragraph key={index}>
+                {index + 1} - {step}
+              </Paragraph>
+            ))}
           </View>
         </View>
       </SafeAreaView>
