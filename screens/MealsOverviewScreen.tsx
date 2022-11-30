@@ -1,19 +1,30 @@
+import { useEffect, useLayoutEffect } from "react";
 import { FlatList } from "react-native";
 import { StyleSheet, Text, View } from "react-native";
 import MealItem from "../components/MealItem";
-import { MEALS } from "../data/dummyData";
+import { CATEGORIES, MEALS } from "../data/dummyData";
 
-const MealsOverviewScreen: React.FC<{ route: any }> = ({
+const MealsOverviewScreen: React.FC<{ route: any; navigation: any }> = ({
   route,
+  navigation,
 }): React.ReactElement => {
   const catId = route.params.categoryId;
+  const color = route.params.color;
 
   const displayedmeals = MEALS.filter((meal) =>
     meal.categoryIds.includes(catId)
   );
 
+  useLayoutEffect(() => {
+    const categoryTitle = CATEGORIES.find(
+      (category) => category.id === catId
+    )?.title;
+    
+    navigation.setOptions({ title: categoryTitle });
+  }, [catId, navigation]);
+
   const renderMealItem = (itemData: any) => {
-    return <MealItem meal={itemData.item} onPress={() => {}} />;
+    return <MealItem meal={itemData.item} bgColor={color} onPress={() => {}} />;
   };
 
   return (
@@ -30,7 +41,6 @@ const MealsOverviewScreen: React.FC<{ route: any }> = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
   },
 });
 

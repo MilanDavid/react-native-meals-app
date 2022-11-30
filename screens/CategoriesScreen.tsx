@@ -6,9 +6,10 @@ const CategoriesScreen: React.FC = ({
   navigation,
 }: any): React.ReactElement => {
   const rederCategoryItem = (itemData: any) => {
-    const pressHandler = () => {
+    const pressHandler = (color: string) => {
       navigation.navigate("MealsOverview", {
         categoryId: itemData.item.id,
+        color: color,
       });
     };
 

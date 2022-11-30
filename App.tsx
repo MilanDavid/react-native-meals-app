@@ -13,10 +13,25 @@ const App: React.FC = (): React.ReactElement => {
   return (
     <PaperProvider>
       <View style={styles.container}>
-        <StatusBar style="dark" />
+        <StatusBar style="auto" />
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="MealsCategories">
-            <Stack.Screen name="MealsCategories" component={CategoriesScreen} />
+          <Stack.Navigator
+            initialRouteName="MealsCategories"
+            screenOptions={{
+              headerStyle: {
+                backgroundColor: "#351401",
+              },
+              headerTintColor: "white",
+              contentStyle: { backgroundColor: "#24180f" },
+            }}
+          >
+            <Stack.Screen
+              name="MealsCategories"
+              component={CategoriesScreen}
+              options={{
+                title: "All Categories",
+              }}
+            />
             <Stack.Screen
               name="MealsOverview"
               component={MealsOverviewScreen}

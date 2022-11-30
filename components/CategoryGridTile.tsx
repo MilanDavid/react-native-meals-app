@@ -11,7 +11,7 @@ import {
 const CategoryGridTime: React.FC<{
   title: string;
   color?: string;
-  onPress: React.EventHandler<GestureResponderEvent>;
+  onPress: React.EventHandler<any>;
 }> = ({ title, color, onPress }): React.ReactElement => {
   return (
     <View style={styles.gridItem}>
@@ -21,7 +21,7 @@ const CategoryGridTime: React.FC<{
           pressed ? styles.buttonPressed : null,
         ]}
         android_ripple={{ color: "lightgreen" }}
-        onPress={onPress}
+        onPress={() => onPress(String(color))}
       >
         <View style={[styles.innerContainer, { backgroundColor: color }]}>
           <Text style={styles.title}>{title}</Text>
