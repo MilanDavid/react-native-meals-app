@@ -1,21 +1,24 @@
-import {
-  GestureResponderEvent,
-  Pressable,
-  StyleSheet,
-  View,
-} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Pressable, StyleSheet, View } from "react-native";
 import { Card, Paragraph } from "react-native-paper";
 import Meal from "../models/meal";
 
 const MealItem: React.FC<{
   meal: Meal;
   bgColor: string;
-  onPress: React.EventHandler<GestureResponderEvent>;
-}> = ({ meal, onPress, bgColor }): React.ReactElement => {
+}> = ({ meal, bgColor }): React.ReactElement => {
+  const navigation = useNavigation<any>();
+
+  const selectMealItemHandler = (id: string) => {
+    navigation.navigate("MealsDetails", {
+      mealId: id,
+    });
+  };
+
   return (
     <View style={styles.card}>
       <Pressable
-        onPress={onPress}
+        onPress={() => selectMealItemHandler(meal.id)}
         style={({ pressed }) => [{ opacity: pressed ? 0.7 : 1 }]}
       >
         <Card elevation={5} style={{ backgroundColor: bgColor }}>

@@ -6,6 +6,7 @@ import { StyleSheet, View } from "react-native";
 import CategoriesScreen from "./screens/CategoriesScreen";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 import { Provider as PaperProvider } from "react-native-paper";
+import MealsDetailsScreen from "./screens/MealsDetailsScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,10 @@ const App: React.FC = (): React.ReactElement => {
             <Stack.Screen
               name="MealsOverview"
               component={MealsOverviewScreen}
+            />
+            <Stack.Screen
+              name="MealsDetails"
+              component={MealsDetailsScreen}
             />
           </Stack.Navigator>
         </NavigationContainer>

@@ -24,7 +24,7 @@ const MealsOverviewScreen: React.FC<{ route: any; navigation: any }> = ({
   }, [catId, navigation]);
 
   const renderMealItem = (itemData: any) => {
-    return <MealItem meal={itemData.item} bgColor={color} onPress={() => {}} />;
+    return <MealItem meal={itemData.item} bgColor={color} />;
   };
 
   return (

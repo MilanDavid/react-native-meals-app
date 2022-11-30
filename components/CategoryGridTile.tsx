@@ -5,7 +5,6 @@ import {
   View,
   StyleSheet,
   Platform,
-  GestureResponderEvent,
 } from "react-native";
 
 const CategoryGridTime: React.FC<{
