@@ -1,12 +1,13 @@
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
-import React from "react";
 import { StyleSheet, View } from "react-native";
+import { Provider as PaperProvider } from "react-native-paper";
 import CategoriesScreen from "./screens/CategoriesScreen";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
-import { Provider as PaperProvider } from "react-native-paper";
 import MealsDetailsScreen from "./screens/MealsDetailsScreen";
+import "react-native-gesture-handler";
 
 const Stack = createNativeStackNavigator();
 
@@ -37,10 +38,7 @@ const App: React.FC = (): React.ReactElement => {
               name="MealsOverview"
               component={MealsOverviewScreen}
             />
-            <Stack.Screen
-              name="MealsDetails"
-              component={MealsDetailsScreen}
-            />
+            <Stack.Screen name="MealsDetails" component={MealsDetailsScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
