@@ -11,7 +11,8 @@ import "react-native-gesture-handler";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import FavoritesScreen from "./screens/FavoritesScreen";
 import { Ionicons } from "@expo/vector-icons";
-import FavoritesContextProvider from "./store/context/favorites-context";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -61,7 +62,8 @@ const App: React.FC = (): React.ReactElement => {
     <PaperProvider>
       <View style={styles.container}>
         <StatusBar style="auto" />
-        <FavoritesContextProvider>
+        {/* <FavoritesContextProvider> */}
+        <Provider store={store}>
           <NavigationContainer>
             <Stack.Navigator
               initialRouteName="MealsCategories"
@@ -90,7 +92,8 @@ const App: React.FC = (): React.ReactElement => {
               />
             </Stack.Navigator>
           </NavigationContainer>
-        </FavoritesContextProvider>
+          {/* </FavoritesContextProvider> */}
+        </Provider>
       </View>
     </PaperProvider>
   );
