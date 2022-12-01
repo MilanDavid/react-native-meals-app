@@ -5,7 +5,7 @@ import Meal from "../models/meal";
 
 const MealItem: React.FC<{
   meal: Meal;
-  bgColor: string;
+  bgColor?: string;
 }> = ({ meal, bgColor }): React.ReactElement => {
   const navigation = useNavigation<any>();
 
@@ -21,7 +21,10 @@ const MealItem: React.FC<{
         onPress={() => selectMealItemHandler(meal.id)}
         style={({ pressed }) => [{ opacity: pressed ? 0.7 : 1 }]}
       >
-        <Card elevation={5} style={{ backgroundColor: bgColor }}>
+        <Card
+          elevation={5}
+          style={{ backgroundColor: bgColor ? bgColor : "gold" }}
+        >
           <Card.Title title={meal.title} titleStyle={{ color: "black" }} />
           <Card.Cover source={{ uri: String(meal.imageUrl) }} />
           <Card.Content>
