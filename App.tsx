@@ -7,7 +7,6 @@ import { Provider as PaperProvider } from "react-native-paper";
 import CategoriesScreen from "./screens/CategoriesScreen";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 import MealsDetailsScreen from "./screens/MealsDetailsScreen";
-import "react-native-gesture-handler";
 
 const Stack = createNativeStackNavigator();
 
